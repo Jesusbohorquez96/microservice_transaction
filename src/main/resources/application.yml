@@ -1,0 +1,34 @@
+
+app:
+  description: "Transaction Service"
+  version: "1.0.0"
+
+server:
+  port: 8082
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservices_transaction
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+        hibernate:
+            dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: microservices_transaction
+
