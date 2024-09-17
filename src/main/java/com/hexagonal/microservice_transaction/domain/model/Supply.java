@@ -1,15 +1,24 @@
 package com.hexagonal.microservice_transaction.domain.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Supply {
+
     private Long id;
     private String name;
-    private int quantity;
-    private LocalDate supplyDate;
-    private LocalDateTime lastUpdated;
+    private Integer quantity;
+    private LocalDateTime supplyDate;
     private String status;
+    private Long articleId;
+
+    public Supply(Long id, String name, Integer quantity, LocalDateTime supplyDate, String status, Long articleId) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.supplyDate = supplyDate;
+        this.status = status;
+        this.articleId = articleId;
+    }
 
     public Long getId() {
         return id;
@@ -27,28 +36,20 @@ public class Supply {
         this.name = name;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public LocalDate getSupplyDate() {
+    public LocalDateTime getSupplyDate() {
         return supplyDate;
     }
 
-    public void setSupplyDate(LocalDate supplyDate) {
+    public void setSupplyDate(LocalDateTime supplyDate) {
         this.supplyDate = supplyDate;
-    }
-
-    public LocalDateTime getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public void setLastUpdated(LocalDateTime lastUpdated) {
-        this.lastUpdated = lastUpdated;
     }
 
     public String getStatus() {
@@ -57,5 +58,13 @@ public class Supply {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Long getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(Long articleId) {
+        this.articleId = articleId;
     }
 }

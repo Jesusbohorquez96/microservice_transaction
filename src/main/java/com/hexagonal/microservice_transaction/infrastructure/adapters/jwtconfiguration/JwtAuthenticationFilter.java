@@ -48,7 +48,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
                     String extractRol = jwtService.extractRol(jwt);
-
+                System.out.println("extractRol: " + extractRol);
                     List<GrantedAuthority> authorities = Collections.singletonList(
                             new SimpleGrantedAuthority(ROLE + extractRol)
                     );

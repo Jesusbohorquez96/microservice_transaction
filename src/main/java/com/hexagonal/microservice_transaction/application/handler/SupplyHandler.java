@@ -18,7 +18,10 @@ public class SupplyHandler implements ISupplyHandler {
 
     @Override
     public void saveSupplyIn(SupplyRequest supplyRequest) {
+        System.out.println("camfoesa " + supplyRequest);
         Supply supply = supplyRequestMapper.toSupply(supplyRequest);
+        System.out.println("fjesusf " + supply);
         supplyServicePort.saveSupply(supply);
+        System.out.println("karen " + supply);
     }
 }

@@ -2,11 +2,11 @@ package com.hexagonal.microservice_transaction.infrastructure.input.rest;
 
 import com.hexagonal.microservice_transaction.application.dto.SupplyRequest;
 import com.hexagonal.microservice_transaction.application.handler.SupplyHandler;
-import io.swagger.v3.oas.annotations.Operation;
-import jakarta.validation.Valid;
+import com.hexagonal.microservice_transaction.domain.api.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import static com.hexagonal.microservice_transaction.constants.ValidationConstants.*;
@@ -17,12 +17,23 @@ import static com.hexagonal.microservice_transaction.constants.ValidationConstan
 public class SupplyRestController {
 
     private final SupplyHandler supplyHandler;
+    private final ArticleService articleService;
 
-    @Operation(summary = CREATE_SUPPLY_DESCRIPTION, description = CREATE_SUPPLY_ACTION)
-    @PostMapping(BASE_URL)
-    public ResponseEntity<Void> saveSupplyIn(@Valid @RequestBody SupplyRequest supplyRequest) {
-        supplyHandler.saveSupplyIn(supplyRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    @PutMapping(BASE_URL)
+    @PreAuthorize("hasAnyRole('admin', 'aux_bodega')")
+    public ResponseEntity<Void> saveSupplyIn(@RequestBody SupplyRequest supplyRequest) {
+
+        try {
+
+            supplyHandler.saveSupplyIn(supplyRequest);
+            System.out.println("dinosrarafe " + supplyRequest);
+            articleService.increaseArticleStock(supplyRequest.getArticleId(), supplyRequest.getQuantity());
+            System.out.println("HOLA Mfasfefasf " + supplyRequest);
+            return ResponseEntity.ok().build();
+
+        } catch (Exception e) {
+            System.out.println("HOLA MUNDO" + e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
-
 }

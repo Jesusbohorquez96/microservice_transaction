@@ -14,6 +14,7 @@ import static com.hexagonal.microservice_transaction.constants.ValidationConstan
 
 @Service
 public class JwtService {
+
     private static final String SECRET_KEY = PRIVATE;
 
     private Key getSignInKey() {
@@ -24,6 +25,7 @@ public class JwtService {
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
+
     public String extractRol(String token) {
         return extractClaim(token, claims -> claims.get(ROL, String.class));
     }
@@ -45,6 +47,10 @@ public class JwtService {
             e.printStackTrace();
             return Jwts.claims();
         }
+    }
+
+    public String obtenerTokenJWT() {
+        return null;
     }
 }
 

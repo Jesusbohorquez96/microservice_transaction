@@ -15,4 +15,5 @@ public class SupplyRequest {
 
     private String status;
 
+    private Long articleId;
 }

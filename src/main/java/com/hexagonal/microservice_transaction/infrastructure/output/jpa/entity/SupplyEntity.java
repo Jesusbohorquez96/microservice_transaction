@@ -31,21 +31,19 @@ public class SupplyEntity {
     @Column(name = SUPPLY_DATE, nullable = false)
     private LocalDateTime supplyDate;
 
-    @Column(name = LAST_UPDATED, nullable = false)
-    private LocalDateTime lastUpdated;
-
     @Column(name = STATUS, length = STATUS_LENGTH, nullable = false)
     private String status;
+
+    private Long articleId;
 
     @PrePersist
     protected void onCreate() {
         this.supplyDate = LocalDateTime.now();
-        this.lastUpdated = LocalDateTime.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        this.lastUpdated = LocalDateTime.now();
+        this.supplyDate = LocalDateTime.now();
     }
 }
 

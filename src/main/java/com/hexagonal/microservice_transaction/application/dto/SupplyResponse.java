@@ -1,10 +1,12 @@
 package com.hexagonal.microservice_transaction.application.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Data
 @Getter
 @Setter
 public class SupplyResponse {
@@ -17,8 +19,8 @@ public class SupplyResponse {
 
     private LocalDateTime supplyDate;
 
-    private LocalDateTime supplyLastUpdated;
-
     private String supplyStatus;
+
+    private int stock;
 
 }

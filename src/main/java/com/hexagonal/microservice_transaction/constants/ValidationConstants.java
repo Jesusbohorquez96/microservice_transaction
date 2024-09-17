@@ -20,7 +20,6 @@ public class ValidationConstants {
     public static final String SUPPLY_NAME = "supplyName";
     public static final String SUPPLY_QUANTITY = "supplyQuantity";
     public static final String TARGET_SUPPLY_DATE = "supplyDate";
-    public static final String SUPPLY_LAST_UPDATED = "supplyLastUpdated";
     public static final String SUPPLY_STATUS = "supplyStatus";
 
     public static final String TITLE = "Hexagonal Monolithic API";
@@ -32,8 +31,6 @@ public class ValidationConstants {
 
     public static final String BASE_URL = "/";
     public static final String SUPPLIES_URL = "/supplies";
-    public static final String CREATE_SUPPLY_DESCRIPTION = "Create a new supply";
-    public static final String CREATE_SUPPLY_ACTION = "Add a new supply to the system";
 
     public static final String ROL = "rol";
     public static final String PRIVATE = "294A404E635266556A586E327235753878214125442A472D4B6150645367566B";
