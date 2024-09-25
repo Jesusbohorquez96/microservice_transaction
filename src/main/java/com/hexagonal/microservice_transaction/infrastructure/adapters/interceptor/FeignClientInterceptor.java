@@ -5,6 +5,9 @@ import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.springframework.stereotype.Component;
 
+import static com.hexagonal.microservice_transaction.constants.ValidationConstants.AUTHORIZATION;
+import static com.hexagonal.microservice_transaction.constants.ValidationConstants.BEARER;
+
 @Component
 public class FeignClientInterceptor implements RequestInterceptor {
 
@@ -16,7 +19,7 @@ public class FeignClientInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
-        String token = jwtService.obtenerTokenJWT();
-        requestTemplate.header("Authorization", "Bearer " + token);
+        String token = jwtService.obtainTokenJWT();
+        requestTemplate.header(AUTHORIZATION, BEARER + token);
     }
 }

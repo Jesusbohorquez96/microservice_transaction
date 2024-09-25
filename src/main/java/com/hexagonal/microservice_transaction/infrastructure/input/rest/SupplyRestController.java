@@ -22,17 +22,11 @@ public class SupplyRestController {
     @PutMapping(BASE_URL)
     @PreAuthorize("hasAnyRole('admin', 'aux_bodega')")
     public ResponseEntity<Void> saveSupplyIn(@RequestBody SupplyRequest supplyRequest) {
-
         try {
-
             supplyHandler.saveSupplyIn(supplyRequest);
-            System.out.println("dinosrarafe " + supplyRequest);
             articleService.increaseArticleStock(supplyRequest.getArticleId(), supplyRequest.getQuantity());
-            System.out.println("HOLA Mfasfefasf " + supplyRequest);
             return ResponseEntity.ok().build();
-
         } catch (Exception e) {
-            System.out.println("HOLA MUNDO" + e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }

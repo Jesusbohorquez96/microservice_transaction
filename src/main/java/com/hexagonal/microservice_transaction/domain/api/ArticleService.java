@@ -14,5 +14,6 @@ public class ArticleService  {
 
     public void increaseArticleStock(Long articleId, int quantity) {
         articleClient.increaseStock(articleId, quantity);
+
     }
 }
