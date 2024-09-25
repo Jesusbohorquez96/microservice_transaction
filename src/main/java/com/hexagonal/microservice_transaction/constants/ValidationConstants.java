@@ -2,25 +2,19 @@ package com.hexagonal.microservice_transaction.constants;
 
 public class ValidationConstants {
 
+    public static final int ZERO = 0;
     public static final int SEVEN = 7;
     public static final int NAME_LENGTH = 50;
     public static final int STATUS_LENGTH = 60;
 
     public static final String SPRING = "spring";
 
-    public static final String ID = "id";
     public static final String NAME = "name";
     public static final String QUANTITY = "quantity";
     public static final String SUPPLY_DATE = "supplyDate";
-    public static final String LAST_UPDATED = "lastUpdated";
     public static final String STATUS = "status";
 
     public static final String SUPPLY = "supply";
-    public static final String SUPPLY_ID = "supplyId";
-    public static final String SUPPLY_NAME = "supplyName";
-    public static final String SUPPLY_QUANTITY = "supplyQuantity";
-    public static final String TARGET_SUPPLY_DATE = "supplyDate";
-    public static final String SUPPLY_STATUS = "supplyStatus";
 
     public static final String TITLE = "Hexagonal Monolithic API";
     public static final String TERMS_OF_SERVICE_URL = "http://swagger.io/terms/";
@@ -39,6 +33,7 @@ public class ValidationConstants {
     public static final String AUTHORIZATION = "Authorization";
     public static final String BEARER = "Bearer ";
     public static final String ROLE =  "ROLE_";
+    public static final String ARTICLE_ID_NOT_NULL = "The article id must not be null";
 
     public static final String V3_API = "/v3/api-docs/**";
     public static final String AUTH = "/auth/**";

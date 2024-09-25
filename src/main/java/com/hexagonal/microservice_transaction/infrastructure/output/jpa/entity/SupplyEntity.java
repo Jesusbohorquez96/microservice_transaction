@@ -1,10 +1,7 @@
 package com.hexagonal.microservice_transaction.infrastructure.output.jpa.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -16,6 +13,7 @@ import static com.hexagonal.microservice_transaction.constants.ValidationConstan
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class SupplyEntity {
 
     @Id
@@ -34,6 +32,7 @@ public class SupplyEntity {
     @Column(name = STATUS, length = STATUS_LENGTH, nullable = false)
     private String status;
 
+    @Column(nullable = false)
     private Long articleId;
 
     @PrePersist

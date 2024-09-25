@@ -49,7 +49,7 @@ public class JwtService {
         }
     }
 
-    public String obtenerTokenJWT() {
+    public String obtainTokenJWT() {
         return null;
     }
 }

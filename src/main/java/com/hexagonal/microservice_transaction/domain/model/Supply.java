@@ -67,4 +67,16 @@ public class Supply {
     public void setArticleId(Long articleId) {
         this.articleId = articleId;
     }
+
+    @Override
+    public String toString() {
+        return "Supply{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", quantity=" + quantity +
+                ", supplyDate=" + supplyDate +
+                ", status='" + status + '\'' +
+                ", articleId=" + articleId +
+                '}';
+    }
 }
