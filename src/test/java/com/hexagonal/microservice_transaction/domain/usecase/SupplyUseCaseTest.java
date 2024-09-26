@@ -4,36 +4,44 @@ import com.hexagonal.microservice_transaction.domain.model.Supply;
 import com.hexagonal.microservice_transaction.domain.spi.ISupplyPersistencePort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-import java.time.LocalDateTime;
-
+import static com.hexagonal.microservice_transaction.constants.ValidationConstants.ARTICLE_ID_NOT_NULL;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.times;
 
 class SupplyUseCaseTest {
 
+    @Mock
     private ISupplyPersistencePort supplyPersistencePort;
+
+    @InjectMocks
     private SupplyUseCase supplyUseCase;
 
     @BeforeEach
-    public void setUp() {
-        supplyPersistencePort = Mockito.mock(ISupplyPersistencePort.class);
-        supplyUseCase = new SupplyUseCaseImpl(supplyPersistencePort);
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void testSaveSupply() {
-        Supply supply = new Supply(1L, "Test Supply", 100, LocalDateTime.now(), "Available", 2L);
+    void saveSupply_ShouldCallPersistencePort_WhenSupplyHasId() {
+
+        Supply supply = new Supply(1L, "Test Supply", 100, null, "Available", 1L);
 
         supplyUseCase.saveSupply(supply);
 
-        verify(supplyPersistencePort, times(1)).saveSupply(supply);
+        verify(supplyPersistencePort).saveSupply(supply);
     }
 
-    public static class SupplyUseCaseImpl extends SupplyUseCase {
-        public SupplyUseCaseImpl(ISupplyPersistencePort supplyPersistencePort) {
-            super(supplyPersistencePort);
-        }
+    @Test
+    void saveSupply_ShouldThrowException_WhenSupplyHasNoId() {
+
+        Supply supply = new Supply(null, "Test Supply", 100, null, "Available", 1L);
+
+        assertThatThrownBy(() -> supplyUseCase.saveSupply(supply))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ARTICLE_ID_NOT_NULL);
     }
 }

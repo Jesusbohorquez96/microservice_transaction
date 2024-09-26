@@ -27,7 +27,8 @@ public class SupplyRestController {
             articleService.increaseArticleStock(supplyRequest.getArticleId(), supplyRequest.getQuantity());
             return ResponseEntity.ok().build();
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            //todo este es el error que se muestra en el log
+            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(null);
         }
     }
 }
