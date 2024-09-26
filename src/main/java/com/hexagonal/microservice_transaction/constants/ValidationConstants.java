@@ -19,7 +19,7 @@ public class ValidationConstants {
     public static final String MESSAGE = "message";
     public static final String ERROR = "error";
 
-    public static final String SUPPLY_SUCCESSFULLY = "supply saved successfully";
+    public static final String SUPPLY_SUCCESSFULLY = "supply update successfully";
     public static final String ARTICLE_NOT_FOUND = "Article not found";
 
     public static final String TITLE = "Hexagonal Monolithic API";

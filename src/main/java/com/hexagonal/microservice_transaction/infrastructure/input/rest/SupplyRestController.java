@@ -27,7 +27,7 @@ public class SupplyRestController {
         try {
             supplyHandler.saveSupplyIn(supplyRequest);
             articleService.increaseArticleStock(supplyRequest.getArticleId(), supplyRequest.getQuantity());
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(Collections.singletonMap(MESSAGE, SUPPLY_SUCCESSFULLY));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(Collections.singletonMap(MESSAGE, ARTICLE_NOT_FOUND));
