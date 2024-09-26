@@ -17,6 +17,10 @@ public class ValidationConstants {
 
     public static final String SUPPLY = "supply";
     public static final String MESSAGE = "message";
+    public static final String ERROR = "error";
+
+    public static final String SUPPLY_SUCCESSFULLY = "supply saved successfully";
+    public static final String ARTICLE_NOT_FOUND = "Article not found";
 
     public static final String TITLE = "Hexagonal Monolithic API";
     public static final String TERMS_OF_SERVICE_URL = "http://swagger.io/terms/";
@@ -42,6 +46,7 @@ public class ValidationConstants {
     public static final String ROLE =  "ROLE_";
     public static final String ARTICLE_ID_NOT_NULL = "The article id must not be null";
     public static final String SUPPLY_ID_NOT_NULL = "The supply ID must not be null";
+    public static final String SUPPLY_SAVED_SUCCESSFULLY = "Supply saved successfully";
 
     public static final String ROL_ADMIN_AUX= "hasAnyRole('admin', 'aux_bodega')";
 

@@ -20,6 +20,10 @@ public class Supply {
         this.articleId = articleId;
     }
 
+    public Supply() {
+        this.supplyDate = LocalDateTime.now();
+    }
+
     public Long getId() {
         return id;
     }

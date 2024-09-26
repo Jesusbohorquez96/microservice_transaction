@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+
 import static com.hexagonal.microservice_transaction.constants.ValidationConstants.*;
 
 @RestController
@@ -20,15 +22,15 @@ public class SupplyRestController {
     private final ArticleService articleService;
 
     @PutMapping(BASE_URL)
-    @PreAuthorize("hasAnyRole('admin', 'aux_bodega')")
-    public ResponseEntity<Void> saveSupplyIn(@RequestBody SupplyRequest supplyRequest) {
+    @PreAuthorize(ROL_ADMIN_AUX)
+    public ResponseEntity<?> saveSupplyIn(@RequestBody SupplyRequest supplyRequest) {
         try {
             supplyHandler.saveSupplyIn(supplyRequest);
             articleService.increaseArticleStock(supplyRequest.getArticleId(), supplyRequest.getQuantity());
             return ResponseEntity.ok().build();
         } catch (Exception e) {
-            //todo este es el error que se muestra en el log
-            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Collections.singletonMap(MESSAGE, ARTICLE_NOT_FOUND));
         }
     }
 }
