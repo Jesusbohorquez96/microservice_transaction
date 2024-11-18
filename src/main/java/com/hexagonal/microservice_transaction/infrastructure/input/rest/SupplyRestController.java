@@ -21,7 +21,7 @@ public class SupplyRestController {
     private final SupplyHandler supplyHandler;
     private final ArticleService articleService;
 
-    @PutMapping(BASE_URL)
+    @PutMapping()
     @PreAuthorize(ROL_ADMIN_AUX)
     public ResponseEntity<?> saveSupplyIn(@RequestBody SupplyRequest supplyRequest) {
         try {

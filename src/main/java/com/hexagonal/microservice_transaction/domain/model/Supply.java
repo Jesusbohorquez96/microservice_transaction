@@ -21,7 +21,6 @@ public class Supply {
     }
 
     public Supply() {
-        this.supplyDate = LocalDateTime.now();
     }
 
     public Long getId() {

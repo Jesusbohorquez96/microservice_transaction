@@ -2,7 +2,6 @@ package com.hexagonal.microservice_transaction.constants;
 
 public class ValidationConstants {
 
-    public static final int ZERO = 0;
     public static final int SEVEN = 7;
     public static final int NAME_LENGTH = 50;
     public static final int STATUS_LENGTH = 60;
@@ -13,11 +12,9 @@ public class ValidationConstants {
     public static final String QUANTITY = "quantity";
     public static final String SUPPLY_DATE = "supplyDate";
     public static final String STATUS = "status";
-    public static final String EMAZON_HEXAGONAL = "emazon-hexagonal";
 
     public static final String SUPPLY = "supply";
     public static final String MESSAGE = "message";
-    public static final String ERROR = "error";
 
     public static final String SUPPLY_SUCCESSFULLY = "supply update successfully";
     public static final String ARTICLE_NOT_FOUND = "Article not found";
@@ -29,13 +26,7 @@ public class ValidationConstants {
     public static final String APP_DESCRIPTION = "${app.description}";
     public static final String APP_VERSION = "${app.version}";
 
-    public static final String BASE_URL = "/";
     public static final String SUPPLIES_URL = "/supplies";
-    public static final String ROOT_ARTICLE_ID = "/{articleId}";
-    public static final String ARTICLES_URL = "http://localhost:8080/articles";
-    public static final String INCREASE_STOCK_ARTICLE_ID = "/increase-stock/{articleId}";
-    public static final String ARTICLE_ID = "articleId";
-    public static final String ADDITIONAL_STOCK = "additionalStock";
 
     public static final String ROL = "rol";
     public static final String PRIVATE = "294A404E635266556A586E327235753878214125442A472D4B6150645367566B";
@@ -45,9 +36,6 @@ public class ValidationConstants {
     public static final String BEARER = "Bearer ";
     public static final String ROLE =  "ROLE_";
     public static final String ARTICLE_ID_NOT_NULL = "The article id must not be null";
-    public static final String SUPPLY_ID_NOT_NULL = "The supply ID must not be null";
-    public static final String SUPPLY_SAVED_SUCCESSFULLY = "Supply saved successfully";
-
     public static final String ROL_ADMIN_AUX= "hasAnyRole('admin', 'aux_bodega')";
 
     public static final String V3_API = "/v3/api-docs/**";
