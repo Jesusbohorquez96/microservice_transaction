@@ -20,6 +20,9 @@ public class Supply {
         this.articleId = articleId;
     }
 
+    public Supply() {
+    }
+
     public Long getId() {
         return id;
     }

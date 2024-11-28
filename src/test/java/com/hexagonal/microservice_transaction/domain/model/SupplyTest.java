@@ -55,4 +55,18 @@ class SupplyTest {
         assertThat(supply.getStatus()).isEqualTo(newStatus);
         assertThat(supply.getArticleId()).isEqualTo(newArticleId);
     }
+
+    @Test
+    public void testToString() {
+        String expectedString = "Supply{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", quantity=" + quantity +
+                ", supplyDate=" + supplyDate +
+                ", status='" + status + '\'' +
+                ", articleId=" + articleId +
+                '}';
+
+        assertThat(supply.toString()).isEqualTo(expectedString);
+    }
 }
